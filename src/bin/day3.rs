@@ -7,13 +7,8 @@ static LETTERS: &'static [char] = &[
 ];
 
 fn part1() -> usize {
-    let priorities: HashMap<char, usize> = {
-        let mut i = 0;
-        HashMap::from_iter(LETTERS.iter().map(|&x| {
-            i += 1;
-            (x, i)
-        }))
-    };
+    let priorities: HashMap<char, usize> =
+        HashMap::from_iter(LETTERS.iter().enumerate().map(|(i, &x)| (x, i + 1)));
 
     include_str!("day3-input.txt").lines().fold(0, |acc, x| {
         let idx = x.len() / 2;
@@ -31,13 +26,8 @@ fn part1() -> usize {
 fn part2() -> usize {
     let lines: Vec<&str> = include_str!("day3-input.txt").lines().collect();
 
-    let priorities: HashMap<char, usize> = {
-        let mut i = 0;
-        HashMap::from_iter(LETTERS.iter().map(|&x| {
-            i += 1;
-            (x, i)
-        }))
-    };
+    let priorities: HashMap<char, usize> =
+        HashMap::from_iter(LETTERS.iter().enumerate().map(|(i, &x)| (x, i + 1)));
 
     lines.chunks(3).fold(0, |acc, elfs| {
         let elf1: HashSet<char> = HashSet::from_iter(elfs[0].chars());
