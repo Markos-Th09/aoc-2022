@@ -270,7 +270,7 @@ mod tests {
     use crate::{part1, part2};
 
     #[test]
-    fn test_part1() {
+    fn test() {
         let input = r"Sabqponm
 abcryxxl
 accszExk

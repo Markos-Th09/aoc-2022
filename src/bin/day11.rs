@@ -148,7 +148,7 @@ mod tests {
     use crate::{part1, part2};
 
     #[test]
-    fn test_part1() {
+    fn test() {
         let input = r"Monkey 0:
   Starting items: 79, 98
   Operation: new = old * 19
